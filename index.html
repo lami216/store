@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Game Offers</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
+        .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
+        h1 { text-align: center; color: #333; }
+        .games { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 32px; }
+        .game-card { background: #e9ecef; border-radius: 8px; width: 45%; margin: 12px 0; padding: 24px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); transition: box-shadow 0.2s; }
+        .game-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.13); }
+        .game-card a { display: inline-block; margin-top: 18px; padding: 10px 22px; background: #25d366; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background 0.2s; }
+        .game-card a:hover { background: #128c7e; }
+        .pubg { background: #1a2233; color: #ffe600; }
+        .freefire { background: #ffeb3b; color: #222; }
+        .fcmobile { background: #0057b8; color: #fff; }
+        .efootball { background: #22223b; color: #ffd700; }
+        .game-image { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; background: #ddd; display: block; margin-left: auto; margin-right: auto; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Choose Your Game</h1>
+        <div class="games">
+            <div class="game-card pubg">
+                <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/PUBG_Mobile_logo.svg" alt="PUBG Mobile Logo">
+                <h2>PUBG Mobile</h2>
+                <a href="pubg.html">View Offers</a>
+            </div>
+            <div class="game-card freefire">
+                <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Free_Fire_logo.png" alt="Free Fire Logo">
+                <h2>Free Fire</h2>
+                <a href="freefire.html">View Offers</a>
+            </div>
+            <div class="game-card fcmobile">
+                <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/EA_Sports_FC_24_logo.svg" alt="FC Mobile Logo">
+                <h2>FC Mobile</h2>
+                <a href="fcmobile.html">View Offers</a>
+            </div>
+            <div class="game-card efootball">
+                <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Efootball_2023_logo.svg" alt="eFootball Logo">
+                <h2>eFootball</h2>
+                <a href="efootball.html">View Offers</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
