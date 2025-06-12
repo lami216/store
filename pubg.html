@@ -23,7 +23,7 @@
         }
         
         .container {
-            max-width: 800px;
+            max-width: 1000px;
             margin: 40px auto;
             background: rgba(26, 34, 51, 0.9);
             border-radius: 16px;
@@ -56,7 +56,7 @@
         
         .offers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
             gap: 20px;
             margin-top: 40px;
         }
@@ -88,14 +88,14 @@
         }
         
         .offer-title {
-            font-size: 1.8rem;
+            font-size: 1.5rem;
             color: var(--pubg-accent);
             margin: 10px 0;
             font-weight: 700;
         }
         
         .offer-price {
-            font-size: 1.5rem;
+            font-size: 1.3rem;
             margin: 10px 0;
             background: rgba(255, 230, 0, 0.1);
             padding: 8px;
@@ -112,13 +112,13 @@
         .order-btn {
             display: block;
             margin: 20px auto 0;
-            padding: 12px 30px;
+            padding: 10px 20px;
             background: linear-gradient(135deg, var(--pubg-accent), #ffcc00);
             color: #1a2233;
             border-radius: 8px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1.1rem;
+            font-size: 1rem;
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(255, 230, 0, 0.3);
             border: none;
@@ -181,60 +181,72 @@
     <div class="container">
         <h1>عروض UC لببجي موبايل</h1>
         
-        <div class="offers-grid">
-            <div class="offer-card">
-                <span class="badge">الأكثر مبيعاً</span>
-                <img class="uc-image" src="https://via.placeholder.com/120x120/1a2233/ffe600?text=UC60" alt="60 UC">
-                <h3 class="offer-title">60 UC</h3>
-                <div class="offer-price">$0.99</div>
-                <div class="offer-bonus">+ هدية 5 UC إضافية</div>
-                <a href="https://wa.me/1234567890?text=I%20want%20to%20buy%2060%20UC%20for%20PUBG" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card">
-                <img class="uc-image" src="https://via.placeholder.com/120x120/1a2233/ffe600?text=UC325" alt="325 UC">
-                <h3 class="offer-title">325 UC</h3>
-                <div class="offer-price">$4.99</div>
-                <div class="offer-bonus">+ هدية 30 UC إضافية</div>
-                <a href="https://wa.me/1234567890?text=I%20want%20to%20buy%20325%20UC%20for%20PUBG" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card">
-                <span class="badge">عرض خاص</span>
-                <img class="uc-image" src="https://via.placeholder.com/120x120/1a2233/ffe600?text=UC660" alt="660 UC">
-                <h3 class="offer-title">660 UC</h3>
-                <div class="offer-price">$9.49</div>
-                <div class="offer-bonus">+ هدية 80 UC إضافية</div>
-                <a href="https://wa.me/1234567890?text=I%20want%20to%20buy%20660%20UC%20for%20PUBG" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card">
-                <img class="uc-image" src="https://via.placeholder.com/120x120/1a2233/ffe600?text=UC1800" alt="1800 UC">
-                <h3 class="offer-title">1800 UC</h3>
-                <div class="offer-price">$24.99</div>
-                <div class="offer-bonus">+ هدية 200 UC إضافية</div>
-                <a href="https://wa.me/1234567890?text=I%20want%20to%20buy%201800%20UC%20for%20PUBG" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card">
-                <span class="badge">حصري</span>
-                <img class="uc-image" src="https://via.placeholder.com/120x120/1a2233/ffe600?text=UC3600" alt="3600 UC">
-                <h3 class="offer-title">3600 UC</h3>
-                <div class="offer-price">$49.99</div>
-                <div class="offer-bonus">+ هدية 500 UC إضافية</div>
-                <a href="https://wa.me/1234567890?text=I%20want%20to%20buy%203600%20UC%20for%20PUBG" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card">
-                <img class="uc-image" src="https://via.placeholder.com/120x120/1a2233/ffe600?text=UC7200" alt="7200 UC">
-                <h3 class="offer-title">7200 UC</h3>
-                <div class="offer-price">$99.99</div>
-                <div class="offer-bonus">+ هدية 1200 UC إضافية</div>
-                <a href="https://wa.me/1234567890?text=I%20want%20to%20buy%207200%20UC%20for%20PUBG" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
+        <div class="offers-grid" id="cardsContainer">
+            <!-- سيتم ملء البطاقات هنا ديناميكياً -->
         </div>
         
         <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
     </div>
+
+    <script>
+        const products = [
+            { uc: "60 UC", price: "50" },
+            { uc: "120 UC", price: "100" },
+            { uc: "210 UC", price: "150" },
+            { uc: "325 UC", price: "200" },
+            { uc: "355 UC", price: "220" },
+            { uc: "385 UC", price: "250" },
+            { uc: "445 UC", price: "300" },
+            { uc: "660 UC", price: "400" },
+            { uc: "720 UC", price: "450" },
+            { uc: "780 UC", price: "500" },
+            { uc: "840 UC", price: "550" },
+            { uc: "900 UC", price: "600" },
+            { uc: "1075 UC", price: "700" },
+            { uc: "1200 UC", price: "800" },
+            { uc: "1920 UC", price: "1000" },
+            { uc: "4000 UC", price: "2000" },
+            { uc: "8400 UC", price: "3800" }
+        ];
+
+        const cardsContainer = document.getElementById("cardsContainer");
+
+        products.forEach((product, index) => {
+            let imageUrl;
+            const price = parseInt(product.price);
+
+            // تحديد الصورة بناء على السعر
+            if (price < 200) {
+                imageUrl = "UC0.png";
+            } else if (price < 400) {
+                imageUrl = "UC1.png";
+            } else if (price < 600) {
+                imageUrl = "UC2.png";
+            } else if (price < 1000) {
+                imageUrl = "UC3.png";
+            } else {
+                imageUrl = "UC4.png";
+            }
+
+            // إضافة شارة "الأكثر مبيعاً" للعناصر المطلوبة
+            let badgeHtml = '';
+            if (index === 0 || index === 3 || index === 7) {
+                badgeHtml = `<span class="badge">${index === 0 ? 'الأكثر مبيعاً' : 'عرض خاص'}</span>`;
+            }
+
+            const cardHtml = `
+                <div class="offer-card">
+                    ${badgeHtml}
+                    <img class="uc-image" src="images/${imageUrl}" alt="${product.uc}">
+                    <h3 class="offer-title">${product.uc}</h3>
+                    <div class="offer-price">${product.price} MRT</div>
+                    <div class="offer-bonus">+ شحن فوري</div>
+                    <a href="https://wa.me/1234567890?text=أريد شراء ${product.uc} بسعر ${product.price} MRT" class="order-btn" target="_blank">اطلب الآن</a>
+                </div>
+            `;
+
+            cardsContainer.insertAdjacentHTML('beforeend', cardHtml);
+        });
+    </script>
 </body>
 </html>
