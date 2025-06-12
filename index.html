@@ -1,49 +1,305 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Game Offers</title>
+    <title>عروض الألعاب الحصرية</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        .container { max-width: 700px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
-        h1 { text-align: center; color: #333; }
-        .games { display: flex; flex-wrap: wrap; justify-content: space-around; margin-top: 32px; }
-        .game-card { background: #e9ecef; border-radius: 8px; width: 45%; margin: 12px 0; padding: 24px; text-align: center; box-shadow: 0 1px 4px rgba(0,0,0,0.06); transition: box-shadow 0.2s; }
-        .game-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.13); }
-        .game-card a { display: inline-block; margin-top: 18px; padding: 10px 22px; background: #25d366; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; transition: background 0.2s; }
-        .game-card a:hover { background: #128c7e; }
-        .pubg { background: #1a2233; color: #ffe600; }
-        .freefire { background: #ffeb3b; color: #222; }
-        .fcmobile { background: #0057b8; color: #fff; }
-        .efootball { background: #22223b; color: #ffd700; }
-        .game-image { width: 80px; height: 80px; object-fit: cover; border-radius: 8px; margin-bottom: 12px; background: #ddd; display: block; margin-left: auto; margin-right: auto; }
+        :root {
+            --primary-color: #6c5ce7;
+            --secondary-color: #a29bfe;
+            --accent-color: #fd79a8;
+            --dark-color: #2d3436;
+            --light-color: #f5f6fa;
+        }
+        
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            padding: 40px;
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--dark-color);
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            position: relative;
+            display: inline-block;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+            border-radius: 2px;
+        }
+        
+        .games {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .game-card {
+            background: white;
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            border: none;
+        }
+        
+        .game-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+        }
+        
+        .game-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(0,0,0,0.15);
+        }
+        
+        .game-image {
+            width: 100px;
+            height: 100px;
+            object-fit: contain;
+            border-radius: 12px;
+            margin-bottom: 16px;
+            background: rgba(255,255,255,0.2);
+            padding: 8px;
+            transition: transform 0.3s;
+        }
+        
+        .game-card:hover .game-image {
+            transform: scale(1.1);
+        }
+        
+        .game-card h2 {
+            margin: 16px 0;
+            font-size: 1.5rem;
+            color: var(--dark-color);
+        }
+        
+        .game-card a {
+            display: inline-block;
+            margin-top: 18px;
+            padding: 12px 28px;
+            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+            color: white;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(108, 92, 231, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .game-card a:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(108, 92, 231, 0.4);
+        }
+        
+        .game-card a::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+            transition: 0.5s;
+        }
+        
+        .game-card a:hover::after {
+            left: 100%;
+        }
+        
+        .pubg {
+            background: linear-gradient(135deg, #1a2233 0%, #3a4a6b 100%);
+            color: #ffe600;
+        }
+        
+        .pubg h2 {
+            color: #ffe600;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        .freefire {
+            background: linear-gradient(135deg, #ffeb3b 0%, #ffc107 100%);
+            color: #222;
+        }
+        
+        .freefire h2 {
+            color: #d32f2f;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .fcmobile {
+            background: linear-gradient(135deg, #0057b8 0%, #003d82 100%);
+            color: white;
+        }
+        
+        .efootball {
+            background: linear-gradient(135deg, #22223b 0%, #4a4e69 100%);
+            color: #ffd700;
+        }
+        
+        .efootball h2 {
+            color: #ffd700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .game-card {
+            animation: fadeInUp 0.5s ease forwards;
+            opacity: 0;
+        }
+        
+        .game-card:nth-child(1) { animation-delay: 0.1s; }
+        .game-card:nth-child(2) { animation-delay: 0.2s; }
+        .game-card:nth-child(3) { animation-delay: 0.3s; }
+        .game-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        .game-card::after {
+            content: 'جديد';
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            background: var(--accent-color);
+            color: white;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+                border-radius: 12px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .games {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .offer-badge {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            background: #e74c3c;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            z-index: 1;
+        }
+        
+        .discount-tag {
+            background: #2ecc71;
+            color: white;
+            padding: 4px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            margin-top: 10px;
+            display: inline-block;
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Choose Your Game</h1>
+        <h1>🔥 عروض الألعاب الحصرية 🔥</h1>
+        <p style="text-align: center; color: #666; margin-bottom: 20px;">اختر لعبتك المفضلة واستفد من أفضل العروض!</p>
+        
         <div class="games">
             <div class="game-card pubg">
+                <div class="offer-badge">خصم</div>
                 <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7c/PUBG_Mobile_logo.svg" alt="PUBG Mobile Logo">
-                <h2>PUBG Mobile</h2>
-                <a href="pubg.html">View Offers</a>
+                <h2>ببجي موبايل</h2>
+                <div class="discount-tag">خصم يصل لـ30%</div>
+                <a href="pubg.html">عرض العروض</a>
             </div>
+            
             <div class="game-card freefire">
+                <div class="offer-badge">عرض</div>
                 <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/2/2e/Free_Fire_logo.png" alt="Free Fire Logo">
-                <h2>Free Fire</h2>
-                <a href="freefire.html">View Offers</a>
+                <h2>فري فاير</h2>
+                <div class="discount-tag">هدايا مجانية</div>
+                <a href="freefire.html">عرض العروض</a>
             </div>
+            
             <div class="game-card fcmobile">
+                <div class="offer-badge">محدود</div>
                 <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/6/6e/EA_Sports_FC_24_logo.svg" alt="FC Mobile Logo">
-                <h2>FC Mobile</h2>
-                <a href="fcmobile.html">View Offers</a>
+                <h2>فيفا موبايل</h2>
+                <div class="discount-tag">حزم نادرة</div>
+                <a href="fcmobile.html">عرض العروض</a>
             </div>
+            
             <div class="game-card efootball">
+                <div class="offer-badge">حصري</div>
                 <img class="game-image" src="https://upload.wikimedia.org/wikipedia/commons/7/7e/Efootball_2023_logo.svg" alt="eFootball Logo">
-                <h2>eFootball</h2>
-                <a href="efootball.html">View Offers</a>
+                <h2>اي فوتبول</h2>
+                <div class="discount-tag">لاعبين مميزين</div>
+                <a href="efootball.html">عرض العروض</a>
             </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <p style="color: #666; font-size: 0.9rem;">⏰ العروض محدودة الوقت! استفد منها قبل انتهاء الفرصة</p>
         </div>
     </div>
 </body>
