@@ -1,39 +1,307 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>eFootball Offers</title>
+    <title>عروض eFootball</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
-        body { font-family: Arial, sans-serif; background: #f4f4f4; margin: 0; padding: 0; }
-        .container { max-width: 600px; margin: 40px auto; background: #fff; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); padding: 32px; }
-        h1 { text-align: center; color: #333; }
-        .offers { margin-top: 32px; }
-        .offer { background: #e9ecef; border-radius: 8px; margin-bottom: 18px; padding: 18px 24px; }
-        .order-link { display: block; margin: 32px auto 0 auto; width: fit-content; padding: 12px 28px; background: #25d366; color: #fff; border-radius: 5px; text-decoration: none; font-weight: bold; font-size: 1.1em; transition: background 0.2s; }
-        .order-link:hover { background: #128c7e; }
-        .back { display: block; margin: 24px auto 0 auto; width: fit-content; color: #333; text-decoration: underline; }
+        :root {
+            --ef-dark: #22223b;
+            --ef-light: #4a4e69;
+            --ef-accent: #ffd700;
+            --ef-secondary: #9a8c98;
+            --ef-text: #ffffff;
+        }
+        
+        body {
+            font-family: 'Tajawal', Arial, sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            color: var(--ef-text);
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: 40px auto;
+            background: rgba(34, 34, 59, 0.95);
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+            padding: 40px;
+            border: 1px solid rgba(255, 215, 0, 0.2);
+            backdrop-filter: blur(8px);
+        }
+        
+        h1 {
+            text-align: center;
+            color: var(--ef-accent);
+            font-size: 2.5rem;
+            margin-bottom: 30px;
+            position: relative;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        h1::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 150px;
+            height: 3px;
+            background: linear-gradient(90deg, var(--ef-accent), #ffed4e);
+            border-radius: 2px;
+        }
+        
+        .offers-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
+            margin-top: 40px;
+        }
+        
+        .offer-card {
+            background: linear-gradient(135deg, var(--ef-dark), var(--ef-light));
+            border-radius: 12px;
+            padding: 24px;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.2);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 215, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--ef-accent), #ffed4e);
+        }
+        
+        .offer-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(255, 215, 0, 0.25);
+        }
+        
+        .coin-icon {
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            background: linear-gradient(135deg, var(--ef-accent), #ffed4e);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--ef-dark);
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            transition: transform 0.3s;
+        }
+        
+        .offer-card:hover .coin-icon {
+            transform: scale(1.1) rotate(5deg);
+        }
+        
+        .offer-title {
+            font-size: 1.8rem;
+            color: var(--ef-accent);
+            margin: 15px 0;
+            font-weight: 700;
+        }
+        
+        .offer-price {
+            font-size: 1.5rem;
+            margin: 15px 0;
+            background: rgba(255, 215, 0, 0.15);
+            padding: 12px;
+            border-radius: 8px;
+            display: inline-block;
+            color: var(--ef-text);
+            font-weight: 600;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+        }
+        
+        .offer-bonus {
+            font-size: 0.9rem;
+            color: var(--ef-accent);
+            margin: 12px 0;
+            background: rgba(255, 215, 0, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-block;
+        }
+        
+        .order-btn {
+            display: block;
+            margin: 20px auto 0;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--ef-accent), #ffed4e);
+            color: var(--ef-dark);
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            transition: all 0.3s;
+            box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            width: 85%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .order-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .order-btn:hover::after {
+            left: 100%;
+        }
+        
+        .order-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 8px 20px rgba(255, 215, 0, 0.4);
+        }
+        
+        .back-link {
+            display: block;
+            margin: 40px auto 0;
+            text-align: center;
+            color: var(--ef-accent);
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s;
+            width: fit-content;
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 8px;
+        }
+        
+        .back-link:hover {
+            background: rgba(255, 215, 0, 0.1);
+            transform: translateY(-2px);
+        }
+        
+        .badge {
+            position: absolute;
+            top: 15px;
+            left: 15px;
+            background: #e74c3c;
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: bold;
+            z-index: 2;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .popular-badge {
+            background: #27ae60;
+        }
+        
+        .special-badge {
+            background: #8e44ad;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .offer-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
+        }
+        
+        .offer-card:nth-child(1) { animation-delay: 0.1s; }
+        .offer-card:nth-child(2) { animation-delay: 0.2s; }
+        .offer-card:nth-child(3) { animation-delay: 0.3s; }
+        .offer-card:nth-child(4) { animation-delay: 0.4s; }
+        
+        @media (max-width: 768px) {
+            .container {
+                margin: 20px;
+                padding: 20px;
+            }
+            
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .offers-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .offer-card {
+                padding: 20px;
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>eFootball Offers</h1>
-        <div class="offers">
-            <div class="offer">
-                <strong>1000 Coins</strong> - $8.99
+        <h1>⚽ عروض عملات eFootball ⚽</h1>
+        
+        <div class="offers-grid">
+            <div class="offer-card">
+                <span class="badge popular-badge">الأكثر طلباً</span>
+                <div class="coin-icon">💰</div>
+                <h3 class="offer-title">1,000 عملة</h3>
+                <div class="offer-price">320 MRO</div>
+                <div class="offer-bonus">+ شحن فوري</div>
+                <a href="https://wa.me/1234567890?text=أريد شراء 1000 عملة eFootball بسعر 320 MRO" class="order-btn" target="_blank">اطلب الآن</a>
             </div>
-            <div class="offer">
-                <strong>2150 Coins</strong> - $17.99
+            
+            <div class="offer-card">
+                <span class="badge special-badge">عرض خاص</span>
+                <div class="coin-icon">💎</div>
+                <h3 class="offer-title">2,150 عملة</h3>
+                <div class="offer-price">650 MRO</div>
+                <div class="offer-bonus">+ مكافأة إضافية</div>
+                <a href="https://wa.me/1234567890?text=أريد شراء 2150 عملة eFootball بسعر 650 MRO" class="order-btn" target="_blank">اطلب الآن</a>
             </div>
-            <div class="offer">
-                <strong>3550 Coins</strong> - $29.99
+            
+            <div class="offer-card">
+                <div class="coin-icon">🏆</div>
+                <h3 class="offer-title">3,550 عملة</h3>
+                <div class="offer-price">1,080 MRO</div>
+                <div class="offer-bonus">+ لاعبين مميزين</div>
+                <a href="https://wa.me/1234567890?text=أريد شراء 3550 عملة eFootball بسعر 1080 MRO" class="order-btn" target="_blank">اطلب الآن</a>
             </div>
-            <div class="offer">
-                <strong>7150 Coins</strong> - $59.99
+            
+            <div class="offer-card">
+                <span class="badge">حصري</span>
+                <div class="coin-icon">⭐</div>
+                <h3 class="offer-title">7,150 عملة</h3>
+                <div class="offer-price">2,160 MRO</div>
+                <div class="offer-bonus">+ فريق الأحلام</div>
+                <a href="https://wa.me/1234567890?text=أريد شراء 7150 عملة eFootball بسعر 2160 MRO" class="order-btn" target="_blank">اطلب الآن</a>
             </div>
         </div>
-        <a class="order-link" href="https://wa.me/1234567890?text=I%20want%20to%20order%20eFootball%20Coins" target="_blank">Order via WhatsApp</a>
-        <a class="back" href="index.html">&#8592; Back to Main Page</a>
+        
+        <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
     </div>
 </body>
 </html>
