@@ -91,19 +91,28 @@
         }
         
         .fp-icon {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, var(--fc-accent), var(--fc-gold));
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.8rem;
+            font-size: 2rem;
             color: var(--fc-primary);
             font-weight: bold;
             box-shadow: 0 4px 12px rgba(0, 212, 255, 0.3);
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .fp-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(13%) sepia(100%) saturate(7471%) hue-rotate(201deg) brightness(89%) contrast(101%);
         }
         
         .offer-card:hover .fp-icon {
@@ -280,7 +289,9 @@
         <div class="offers-grid">
             <div class="offer-card">
                 <span class="badge popular-badge">الأكثر طلباً</span>
-                <div class="fp-icon">FP</div>
+                <div class="fp-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3176/3176366.png" alt="Football Points">
+                </div>
                 <h3 class="offer-title">100 FP</h3>
                 <p class="offer-description">نقاط لشراء باقات أساسية وتحسين فريقك</p>
                 <div class="offer-price">70 MRO</div>
@@ -290,7 +301,9 @@
             
             <div class="offer-card">
                 <span class="badge special-badge">عرض خاص</span>
-                <div class="fp-icon">FP</div>
+                <div class="fp-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3176/3176366.png" alt="Football Points">
+                </div>
                 <h3 class="offer-title">500 FP</h3>
                 <p class="offer-description">نقاط لشراء لاعبين مميزين وحزم متقدمة</p>
                 <div class="offer-price">180 MRO</div>
@@ -300,7 +313,9 @@
             
             <div class="offer-card">
                 <span class="badge premium-badge">مميز</span>
-                <div class="fp-icon">FP</div>
+                <div class="fp-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3176/3176366.png" alt="Football Points">
+                </div>
                 <h3 class="offer-title">1,000 FP</h3>
                 <p class="offer-description">نقاط لتحسين فريقك والحصول على نجوم كبار</p>
                 <div class="offer-price">360 MRO</div>
@@ -310,7 +325,9 @@
             
             <div class="offer-card">
                 <span class="badge">حصري</span>
-                <div class="fp-icon">FP</div>
+                <div class="fp-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/3176/3176366.png" alt="Football Points">
+                </div>
                 <h3 class="offer-title">2,500 FP</h3>
                 <p class="offer-description">نقاط لتجربة متكاملة وبناء فريق الأحلام</p>
                 <div class="offer-price">720 MRO</div>

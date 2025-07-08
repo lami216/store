@@ -90,19 +90,28 @@
         }
         
         .coin-icon {
-            width: 80px;
-            height: 80px;
+            width: 100px;
+            height: 100px;
             margin: 0 auto 20px;
             background: linear-gradient(135deg, var(--ef-accent), #ffed4e);
             border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
+            font-size: 2.5rem;
             color: var(--ef-dark);
             font-weight: bold;
             box-shadow: 0 4px 12px rgba(255, 215, 0, 0.3);
             transition: transform 0.3s;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .coin-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(1158%) hue-rotate(202deg) brightness(95%) contrast(91%);
         }
         
         .offer-card:hover .coin-icon {
@@ -267,7 +276,9 @@
         <div class="offers-grid">
             <div class="offer-card">
                 <span class="badge popular-badge">الأكثر طلباً</span>
-                <div class="coin-icon">💰</div>
+                <div class="coin-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2729/2729007.png" alt="Football Coin">
+                </div>
                 <h3 class="offer-title">1,000 عملة</h3>
                 <div class="offer-price">320 MRO</div>
                 <div class="offer-bonus">+ شحن فوري</div>
@@ -276,7 +287,9 @@
             
             <div class="offer-card">
                 <span class="badge special-badge">عرض خاص</span>
-                <div class="coin-icon">💎</div>
+                <div class="coin-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2729/2729007.png" alt="Football Coin">
+                </div>
                 <h3 class="offer-title">2,150 عملة</h3>
                 <div class="offer-price">650 MRO</div>
                 <div class="offer-bonus">+ مكافأة إضافية</div>
@@ -284,7 +297,9 @@
             </div>
             
             <div class="offer-card">
-                <div class="coin-icon">🏆</div>
+                <div class="coin-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2729/2729007.png" alt="Football Coin">
+                </div>
                 <h3 class="offer-title">3,550 عملة</h3>
                 <div class="offer-price">1,080 MRO</div>
                 <div class="offer-bonus">+ لاعبين مميزين</div>
@@ -293,7 +308,9 @@
             
             <div class="offer-card">
                 <span class="badge">حصري</span>
-                <div class="coin-icon">⭐</div>
+                <div class="coin-icon">
+                    <img src="https://cdn-icons-png.flaticon.com/512/2729/2729007.png" alt="Football Coin">
+                </div>
                 <h3 class="offer-title">7,150 عملة</h3>
                 <div class="offer-price">2,160 MRO</div>
                 <div class="offer-bonus">+ فريق الأحلام</div>

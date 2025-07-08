@@ -10,12 +10,13 @@
             --pubg-dark: #1a2233;
             --pubg-light: #3a4a6b;
             --pubg-accent: #ffe600;
+            --pubg-secondary: #ffcc00;
             --pubg-text: #ffffff;
         }
         
         body {
             font-family: 'Tajawal', Arial, sans-serif;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
             margin: 0;
             padding: 0;
             min-height: 100vh;
@@ -23,9 +24,9 @@
         }
         
         .container {
-            max-width: 1000px;
+            max-width: 1200px;
             margin: 40px auto;
-            background: rgba(26, 34, 51, 0.9);
+            background: rgba(26, 34, 51, 0.95);
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
             padding: 40px;
@@ -50,21 +51,21 @@
             transform: translateX(-50%);
             width: 150px;
             height: 3px;
-            background: var(--pubg-accent);
+            background: linear-gradient(90deg, var(--pubg-accent), var(--pubg-secondary));
             border-radius: 2px;
         }
         
         .offers-grid {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 24px;
             margin-top: 40px;
         }
         
         .offer-card {
             background: linear-gradient(135deg, var(--pubg-dark), var(--pubg-light));
             border-radius: 12px;
-            padding: 20px;
+            padding: 24px;
             text-align: center;
             box-shadow: 0 4px 20px rgba(0,0,0,0.2);
             transition: all 0.3s ease;
@@ -73,63 +74,104 @@
             overflow: hidden;
         }
         
+        .offer-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 4px;
+            background: linear-gradient(90deg, var(--pubg-accent), var(--pubg-secondary));
+        }
+        
         .offer-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 8px 25px rgba(255, 230, 0, 0.2);
+            transform: translateY(-8px);
+            box-shadow: 0 12px 28px rgba(255, 230, 0, 0.25);
         }
         
         .uc-image {
-            width: 120px;
-            height: 120px;
+            width: 100px;
+            height: 100px;
             object-fit: contain;
-            margin: 0 auto 15px;
+            margin: 0 auto 20px;
             display: block;
             filter: drop-shadow(0 4px 8px rgba(255, 230, 0, 0.3));
+            transition: transform 0.3s;
+            border-radius: 12px;
+            background: rgba(255, 230, 0, 0.1);
+            padding: 10px;
+        }
+        
+        .offer-card:hover .uc-image {
+            transform: scale(1.1) rotate(5deg);
         }
         
         .offer-title {
-            font-size: 1.5rem;
+            font-size: 1.8rem;
             color: var(--pubg-accent);
-            margin: 10px 0;
+            margin: 15px 0;
             font-weight: 700;
         }
         
         .offer-price {
-            font-size: 1.3rem;
-            margin: 10px 0;
-            background: rgba(255, 230, 0, 0.1);
-            padding: 8px;
+            font-size: 1.5rem;
+            margin: 15px 0;
+            background: rgba(255, 230, 0, 0.15);
+            padding: 12px;
             border-radius: 8px;
             display: inline-block;
+            color: var(--pubg-text);
+            font-weight: 600;
+            border: 1px solid rgba(255, 230, 0, 0.3);
         }
         
         .offer-bonus {
             font-size: 0.9rem;
             color: var(--pubg-accent);
-            margin: 10px 0;
+            margin: 12px 0;
+            background: rgba(255, 230, 0, 0.1);
+            padding: 6px 12px;
+            border-radius: 20px;
+            display: inline-block;
         }
         
         .order-btn {
             display: block;
             margin: 20px auto 0;
-            padding: 10px 20px;
-            background: linear-gradient(135deg, var(--pubg-accent), #ffcc00);
-            color: #1a2233;
-            border-radius: 8px;
+            padding: 14px 28px;
+            background: linear-gradient(135deg, var(--pubg-accent), var(--pubg-secondary));
+            color: var(--pubg-dark);
+            border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
-            font-size: 1rem;
+            font-size: 1.1rem;
             transition: all 0.3s;
             box-shadow: 0 4px 12px rgba(255, 230, 0, 0.3);
             border: none;
             cursor: pointer;
-            width: 80%;
+            width: 85%;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .order-btn::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: 0.5s;
+        }
+        
+        .order-btn:hover::after {
+            left: 100%;
         }
         
         .order-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 230, 0, 0.4);
-            background: linear-gradient(135deg, #ffcc00, var(--pubg-accent));
         }
         
         .back-link {
@@ -141,24 +183,52 @@
             font-weight: 500;
             transition: all 0.2s;
             width: fit-content;
+            padding: 10px 20px;
+            border: 1px solid rgba(255, 230, 0, 0.3);
+            border-radius: 8px;
         }
         
         .back-link:hover {
-            text-decoration: underline;
-            color: #ffffff;
+            background: rgba(255, 230, 0, 0.1);
+            transform: translateY(-2px);
         }
         
         .badge {
             position: absolute;
-            top: 10px;
-            left: 10px;
+            top: 15px;
+            left: 15px;
             background: #e74c3c;
             color: white;
-            padding: 4px 12px;
+            padding: 6px 12px;
             border-radius: 20px;
             font-size: 0.8rem;
             font-weight: bold;
             z-index: 2;
+            box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
+        }
+        
+        .popular-badge {
+            background: #27ae60;
+        }
+        
+        .special-badge {
+            background: #8e44ad;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .offer-card {
+            animation: fadeInUp 0.6s ease forwards;
+            opacity: 0;
         }
         
         @media (max-width: 768px) {
@@ -173,13 +243,18 @@
             
             .offers-grid {
                 grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .offer-card {
+                padding: 20px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>عروض UC لببجي موبايل</h1>
+        <h1>🎮 عروض UC لببجي موبايل 🎮</h1>
         
         <div class="offers-grid" id="cardsContainer">
             <!-- سيتم ملء البطاقات هنا ديناميكياً -->
@@ -190,23 +265,23 @@
 
     <script>
         const products = [
-            { uc: "60 UC", price: "50" },
+            { uc: "60 UC", price: "50", badge: "popular-badge", badgeText: "الأكثر مبيعاً" },
             { uc: "120 UC", price: "100" },
             { uc: "210 UC", price: "150" },
-            { uc: "325 UC", price: "200" },
+            { uc: "325 UC", price: "200", badge: "special-badge", badgeText: "عرض خاص" },
             { uc: "355 UC", price: "220" },
             { uc: "385 UC", price: "250" },
             { uc: "445 UC", price: "300" },
-            { uc: "660 UC", price: "400" },
+            { uc: "660 UC", price: "400", badge: "popular-badge", badgeText: "الأكثر طلباً" },
             { uc: "720 UC", price: "450" },
             { uc: "780 UC", price: "500" },
             { uc: "840 UC", price: "550" },
             { uc: "900 UC", price: "600" },
             { uc: "1075 UC", price: "700" },
             { uc: "1200 UC", price: "800" },
-            { uc: "1920 UC", price: "1000" },
+            { uc: "1920 UC", price: "1000", badge: "special-badge", badgeText: "عرض مميز" },
             { uc: "4000 UC", price: "2000" },
-            { uc: "8400 UC", price: "3800" }
+            { uc: "8400 UC", price: "3800", badge: "badge", badgeText: "حصري" }
         ];
 
         const cardsContainer = document.getElementById("cardsContainer");
@@ -228,14 +303,14 @@
                 imageUrl = "UC4.png";
             }
 
-            // إضافة شارة "الأكثر مبيعاً" للعناصر المطلوبة
+            // إضافة الشارات
             let badgeHtml = '';
-            if (index === 0 || index === 3 || index === 7) {
-                badgeHtml = `<span class="badge">${index === 0 ? 'الأكثر مبيعاً' : 'عرض خاص'}</span>`;
+            if (product.badge) {
+                badgeHtml = `<span class="badge ${product.badge}">${product.badgeText}</span>`;
             }
 
             const cardHtml = `
-                <div class="offer-card">
+                <div class="offer-card" style="animation-delay: ${index * 0.1}s;">
                     ${badgeHtml}
                     <img class="uc-image" src="images/${imageUrl}" alt="${product.uc}">
                     <h3 class="offer-title">${product.uc}</h3>
