@@ -7,27 +7,27 @@
     <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --ff-dark: #d32f2f;
-            --ff-light: #f44336;
+            --ff-dark: #1a0000;
+            --ff-medium: #330000;
+            --ff-light: #4d0000;
             --ff-accent: #ffeb3b;
             --ff-secondary: #ffc107;
-            --ff-text-dark: #222222;
-            --ff-text-light: #ffffff;
+            --ff-text: #ffffff;
         }
         
         body {
             font-family: 'Tajawal', Arial, sans-serif;
-            background: linear-gradient(135deg, #1a0000 0%, #330000 50%, #4d0000 100%);
+            background: linear-gradient(135deg, var(--ff-dark) 0%, var(--ff-medium) 50%, var(--ff-light) 100%);
             margin: 0;
             padding: 0;
             min-height: 100vh;
-            color: var(--ff-text-light);
+            color: var(--ff-text);
         }
         
         .container {
             max-width: 1200px;
             margin: 40px auto;
-            background: rgba(211, 47, 47, 0.1);
+            background: rgba(26, 0, 0, 0.95);
             border-radius: 16px;
             box-shadow: 0 8px 32px rgba(0,0,0,0.3);
             padding: 40px;
@@ -64,7 +64,7 @@
         }
         
         .offer-card {
-            background: linear-gradient(135deg, rgba(211, 47, 47, 0.8), rgba(244, 67, 54, 0.9));
+            background: linear-gradient(135deg, rgba(26, 0, 0, 0.8), rgba(51, 0, 0, 0.9));
             border-radius: 12px;
             padding: 24px;
             text-align: center;
@@ -88,22 +88,35 @@
         .offer-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 28px rgba(255, 235, 59, 0.25);
+            border-color: var(--ff-accent);
         }
         
-        .diamond-image {
+        .diamond-icon {
             width: 100px;
             height: 100px;
-            object-fit: contain;
             margin: 0 auto 20px;
-            display: block;
-            filter: drop-shadow(0 4px 8px rgba(255, 235, 59, 0.4));
+            background: linear-gradient(135deg, var(--ff-accent), var(--ff-secondary));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: var(--ff-dark);
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(255, 235, 59, 0.3);
             transition: transform 0.3s;
-            border-radius: 12px;
-            background: rgba(255, 235, 59, 0.1);
-            padding: 10px;
+            position: relative;
+            overflow: hidden;
         }
         
-        .offer-card:hover .diamond-image {
+        .diamond-icon img {
+            width: 60px;
+            height: 60px;
+            object-fit: contain;
+            filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(1158%) hue-rotate(202deg) brightness(95%) contrast(91%);
+        }
+        
+        .offer-card:hover .diamond-icon {
             transform: scale(1.1) rotate(-5deg);
         }
         
@@ -114,6 +127,13 @@
             font-weight: 700;
         }
         
+        .offer-description {
+            font-size: 1rem;
+            color: rgba(255, 255, 255, 0.9);
+            margin: 12px 0;
+            line-height: 1.4;
+        }
+        
         .offer-price {
             font-size: 1.5rem;
             margin: 15px 0;
@@ -121,7 +141,7 @@
             padding: 12px;
             border-radius: 8px;
             display: inline-block;
-            color: var(--ff-text-light);
+            color: var(--ff-accent);
             font-weight: 700;
             border: 1px solid rgba(255, 235, 59, 0.4);
         }
@@ -141,7 +161,7 @@
             margin: 20px auto 0;
             padding: 14px 28px;
             background: linear-gradient(135deg, var(--ff-accent), var(--ff-secondary));
-            color: var(--ff-text-dark);
+            color: var(--ff-dark);
             border-radius: 50px;
             text-decoration: none;
             font-weight: 700;
@@ -220,6 +240,10 @@
             background: #f39c12;
         }
         
+        .premium-badge {
+            background: #9b59b6;
+        }
+        
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -261,118 +285,55 @@
     <div class="container">
         <h1>💎 عروض الماس لفري فاير 💎</h1>
         
-        <div class="offers-grid">
-            <div class="offer-card" style="animation-delay: 0.1s;">
-                <span class="badge popular-badge">الأكثر مبيعاً</span>
-                <img class="diamond-image" src="Diamond.png" alt="25 Diamond">
-                <h3 class="offer-title">25 ماس</h3>
-                <div class="offer-price">20 MRO</div>
-                <div class="offer-bonus">+ شحن فوري</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 25 ماس لفري فاير بسعر 20 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.2s;">
-                <img class="diamond-image" src="Diamond.png" alt="50 Diamond">
-                <h3 class="offer-title">50 ماس</h3>
-                <div class="offer-price">40 MRO</div>
-                <div class="offer-bonus">+ مكافأة إضافية</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 50 ماس لفري فاير بسعر 40 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.3s;">
-                <span class="badge special-badge">عرض خاص</span>
-                <img class="diamond-image" src="Diamond.png" alt="100 Diamond">
-                <h3 class="offer-title">100 ماس</h3>
-                <div class="offer-price">80 MRO</div>
-                <div class="offer-bonus">+ أسلحة نادرة</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 100 ماس لفري فاير بسعر 80 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.4s;">
-                <img class="diamond-image" src="Diamond.png" alt="210 Diamond">
-                <h3 class="offer-title">210 ماس</h3>
-                <div class="offer-price">170 MRO</div>
-                <div class="offer-bonus">+ شخصيات مميزة</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 210 ماس لفري فاير بسعر 170 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.5s;">
-                <img class="diamond-image" src="Diamond.png" alt="645 Diamond">
-                <h3 class="offer-title">645 ماس</h3>
-                <div class="offer-price">520 MRO</div>
-                <div class="offer-bonus">+ حزم حصرية</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 645 ماس لفري فاير بسعر 520 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.6s;">
-                <span class="badge exclusive-badge">عرض مميز</span>
-                <img class="diamond-image" src="Diamond.png" alt="688 Diamond">
-                <h3 class="offer-title">688 ماس</h3>
-                <div class="offer-price">550 MRO</div>
-                <div class="offer-bonus">+ ملابس أسطورية</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 688 ماس لفري فاير بسعر 550 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.7s;">
-                <img class="diamond-image" src="Diamond.png" alt="1080 Diamond">
-                <h3 class="offer-title">1,080 ماس</h3>
-                <div class="offer-price">860 MRO</div>
-                <div class="offer-bonus">+ مركبات فاخرة</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 1080 ماس لفري فاير بسعر 860 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.8s;">
-                <img class="diamond-image" src="Diamond.png" alt="1382 Diamond">
-                <h3 class="offer-title">1,382 ماس</h3>
-                <div class="offer-price">1,100 MRO</div>
-                <div class="offer-bonus">+ بطولات خاصة</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 1382 ماس لفري فاير بسعر 1100 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 0.9s;">
-                <span class="badge">حصري</span>
-                <img class="diamond-image" src="Diamond.png" alt="2200 Diamond">
-                <h3 class="offer-title">2,200 ماس</h3>
-                <div class="offer-price">1,750 MRO</div>
-                <div class="offer-bonus">+ كل المحتوى الحصري</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 2200 ماس لفري فاير بسعر 1750 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 1.0s;">
-                <img class="diamond-image" src="Diamond.png" alt="3520 Diamond">
-                <h3 class="offer-title">3,520 ماس</h3>
-                <div class="offer-price">2,800 MRO</div>
-                <div class="offer-bonus">+ مجموعة كاملة</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 3520 ماس لفري فاير بسعر 2800 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 1.1s;">
-                <img class="diamond-image" src="Diamond.png" alt="4450 Diamond">
-                <h3 class="offer-title">4,450 ماس</h3>
-                <div class="offer-price">3,550 MRO</div>
-                <div class="offer-bonus">+ عضوية VIP</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 4450 ماس لفري فاير بسعر 3550 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 1.2s;">
-                <img class="diamond-image" src="Diamond.png" alt="6900 Diamond">
-                <h3 class="offer-title">6,900 ماس</h3>
-                <div class="offer-price">5,500 MRO</div>
-                <div class="offer-bonus">+ كل الامتيازات</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 6900 ماس لفري فاير بسعر 5500 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
-            
-            <div class="offer-card" style="animation-delay: 1.3s;">
-                <span class="badge special-badge">الأفضل قيمة</span>
-                <img class="diamond-image" src="Diamond.png" alt="7360 Diamond">
-                <h3 class="offer-title">7,360 ماس</h3>
-                <div class="offer-price">5,850 MRO</div>
-                <div class="offer-bonus">+ حساب مميز مدى الحياة</div>
-                <a href="https://wa.me/1234567890?text=أريد شراء 7360 ماس لفري فاير بسعر 5850 MRO" class="order-btn" target="_blank">اطلب الآن</a>
-            </div>
+        <div class="offers-grid" id="cardsContainer">
+            <!-- سيتم ملء البطاقات هنا ديناميكياً -->
         </div>
         
         <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
     </div>
+
+    <script>
+        const products = [
+            { diamonds: "25 ماس", price: "20", badge: "popular-badge", badgeText: "الأكثر مبيعاً", description: "مثالي للمبتدئين والشراء السريع" },
+            { diamonds: "50 ماس", price: "40", description: "خيار ممتاز للحصول على أسلحة أساسية" },
+            { diamonds: "100 ماس", price: "80", badge: "special-badge", badgeText: "عرض خاص", description: "احصل على أسلحة نادرة ومميزة" },
+            { diamonds: "210 ماس", price: "170", description: "شخصيات مميزة وحزم متقدمة" },
+            { diamonds: "645 ماس", price: "520", description: "حزم حصرية ومحتوى متقدم" },
+            { diamonds: "688 ماس", price: "550", badge: "exclusive-badge", badgeText: "عرض مميز", description: "ملابس أسطورية ومحتوى حصري" },
+            { diamonds: "1,080 ماس", price: "860", description: "مركبات فاخرة وأسلحة أسطورية" },
+            { diamonds: "1,382 ماس", price: "1,100", description: "بطولات خاصة ومحتوى VIP" },
+            { diamonds: "2,200 ماس", price: "1,750", badge: "badge", badgeText: "حصري", description: "كل المحتوى الحصري والمميز" },
+            { diamonds: "3,520 ماس", price: "2,800", description: "مجموعة كاملة من المحتوى المتقدم" },
+            { diamonds: "4,450 ماس", price: "3,550", description: "عضوية VIP ومزايا حصرية" },
+            { diamonds: "6,900 ماس", price: "5,500", description: "كل الامتيازات والمحتوى المتاح" },
+            { diamonds: "7,360 ماس", price: "5,850", badge: "premium-badge", badgeText: "الأفضل قيمة", description: "حساب مميز مدى الحياة وكل المزايا" }
+        ];
+
+        const cardsContainer = document.getElementById("cardsContainer");
+
+        products.forEach((product, index) => {
+            // إضافة الشارات
+            let badgeHtml = '';
+            if (product.badge) {
+                badgeHtml = `<span class="badge ${product.badge}">${product.badgeText}</span>`;
+            }
+
+            const cardHtml = `
+                <div class="offer-card" style="animation-delay: ${index * 0.1}s;">
+                    ${badgeHtml}
+                    <div class="diamond-icon">
+                        <img src="Diamond.png" alt="${product.diamonds}">
+                    </div>
+                    <h3 class="offer-title">${product.diamonds}</h3>
+                    <p class="offer-description">${product.description}</p>
+                    <div class="offer-price">${product.price} MRO</div>
+                    <div class="offer-bonus">+ شحن فوري</div>
+                    <a href="https://wa.me/22246099296?text=أريد شراء ${product.diamonds} لفري فاير بسعر ${product.price} MRO" class="order-btn" target="_blank">اطلب الآن</a>
+                </div>
+            `;
+
+            cardsContainer.insertAdjacentHTML('beforeend', cardHtml);
+        });
+    </script>
 </body>
 </html>
