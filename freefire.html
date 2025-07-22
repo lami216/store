@@ -14,7 +14,6 @@
             --ff-secondary: #ffc107;
             --ff-text: #ffffff;
         }
-        
         body {
             font-family: 'Tajawal', Arial, sans-serif;
             background: linear-gradient(135deg, var(--ff-dark) 0%, var(--ff-medium) 50%, var(--ff-light) 100%);
@@ -23,7 +22,6 @@
             min-height: 100vh;
             color: var(--ff-text);
         }
-        
         .container {
             max-width: 1200px;
             margin: 40px auto;
@@ -34,7 +32,6 @@
             border: 1px solid rgba(255, 235, 59, 0.2);
             backdrop-filter: blur(8px);
         }
-        
         h1 {
             text-align: center;
             color: var(--ff-accent);
@@ -43,7 +40,6 @@
             position: relative;
             text-shadow: 0 2px 4px rgba(0,0,0,0.5);
         }
-        
         h1::after {
             content: '';
             position: absolute;
@@ -55,14 +51,12 @@
             background: linear-gradient(90deg, var(--ff-accent), var(--ff-secondary));
             border-radius: 2px;
         }
-        
         .offers-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             gap: 24px;
             margin-top: 40px;
         }
-        
         .offer-card {
             background: linear-gradient(135deg, rgba(26, 0, 0, 0.8), rgba(51, 0, 0, 0.9));
             border-radius: 12px;
@@ -74,7 +68,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .offer-card::before {
             content: '';
             position: absolute;
@@ -84,13 +77,11 @@
             height: 4px;
             background: linear-gradient(90deg, var(--ff-accent), var(--ff-secondary));
         }
-        
         .offer-card:hover {
             transform: translateY(-8px);
             box-shadow: 0 12px 28px rgba(255, 235, 59, 0.25);
             border-color: var(--ff-accent);
         }
-        
         .diamond-icon {
             width: 100px;
             height: 100px;
@@ -108,32 +99,27 @@
             position: relative;
             overflow: hidden;
         }
-        
         .diamond-icon img {
-            width: 60px;
-            height: 60px;
+            width: 80px;
+            height: 80px;
             object-fit: contain;
-            filter: brightness(0) saturate(100%) invert(13%) sepia(8%) saturate(1158%) hue-rotate(202deg) brightness(95%) contrast(91%);
+            /* لا تحتاج أي فلتر لتغيير الألوان */
         }
-        
         .offer-card:hover .diamond-icon {
             transform: scale(1.1) rotate(-5deg);
         }
-        
         .offer-title {
             font-size: 1.8rem;
             color: var(--ff-accent);
             margin: 15px 0;
             font-weight: 700;
         }
-        
         .offer-description {
             font-size: 1rem;
             color: rgba(255, 255, 255, 0.9);
             margin: 12px 0;
             line-height: 1.4;
         }
-        
         .offer-price {
             font-size: 1.5rem;
             margin: 15px 0;
@@ -145,7 +131,6 @@
             font-weight: 700;
             border: 1px solid rgba(255, 235, 59, 0.4);
         }
-        
         .offer-bonus {
             font-size: 0.9rem;
             color: var(--ff-accent);
@@ -155,7 +140,6 @@
             border-radius: 20px;
             display: inline-block;
         }
-        
         .order-btn {
             display: block;
             margin: 20px auto 0;
@@ -174,7 +158,6 @@
             position: relative;
             overflow: hidden;
         }
-        
         .order-btn::after {
             content: '';
             position: absolute;
@@ -185,16 +168,13 @@
             background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
             transition: 0.5s;
         }
-        
         .order-btn:hover::after {
             left: 100%;
         }
-        
         .order-btn:hover {
             transform: translateY(-2px);
             box-shadow: 0 8px 20px rgba(255, 235, 59, 0.4);
         }
-        
         .back-link {
             display: block;
             margin: 40px auto 0;
@@ -208,12 +188,10 @@
             border: 1px solid rgba(255, 235, 59, 0.3);
             border-radius: 8px;
         }
-        
         .back-link:hover {
             background: rgba(255, 235, 59, 0.1);
             transform: translateY(-2px);
         }
-        
         .badge {
             position: absolute;
             top: 15px;
@@ -227,71 +205,31 @@
             z-index: 2;
             box-shadow: 0 2px 8px rgba(231, 76, 60, 0.3);
         }
-        
-        .popular-badge {
-            background: #27ae60;
-        }
-        
-        .special-badge {
-            background: #8e44ad;
-        }
-        
-        .exclusive-badge {
-            background: #f39c12;
-        }
-        
-        .premium-badge {
-            background: #9b59b6;
-        }
-        
+        .popular-badge { background: #27ae60; }
+        .special-badge { background: #8e44ad; }
+        .exclusive-badge { background: #f39c12; }
+        .premium-badge { background: #9b59b6; }
         @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        
-        .offer-card {
-            animation: fadeInUp 0.6s ease forwards;
-            opacity: 0;
-        }
-        
+        .offer-card { animation: fadeInUp 0.6s ease forwards; opacity: 0; }
         @media (max-width: 768px) {
-            .container {
-                margin: 20px;
-                padding: 20px;
-            }
-            
-            h1 {
-                font-size: 2rem;
-            }
-            
-            .offers-grid {
-                grid-template-columns: 1fr;
-                gap: 20px;
-            }
-            
-            .offer-card {
-                padding: 20px;
-            }
+            .container { margin: 20px; padding: 20px; }
+            h1 { font-size: 2rem; }
+            .offers-grid { grid-template-columns: 1fr; gap: 20px; }
+            .offer-card { padding: 20px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>💎 عروض الماس لفري فاير 💎</h1>
-        
         <div class="offers-grid" id="cardsContainer">
             <!-- سيتم ملء البطاقات هنا ديناميكياً -->
         </div>
-        
         <a href="index.html" class="back-link">← العودة للصفحة الرئيسية</a>
     </div>
-
     <script>
         const products = [
             { diamonds: "25 ماس", price: "20", badge: "popular-badge", badgeText: "الأكثر مبيعاً", description: "مثالي للمبتدئين والشراء السريع" },
@@ -308,16 +246,13 @@
             { diamonds: "6,900 ماس", price: "5,500", description: "كل الامتيازات والمحتوى المتاح" },
             { diamonds: "7,360 ماس", price: "5,850", badge: "premium-badge", badgeText: "الأفضل قيمة", description: "حساب مميز مدى الحياة وكل المزايا" }
         ];
-
         const cardsContainer = document.getElementById("cardsContainer");
-
         products.forEach((product, index) => {
             // إضافة الشارات
             let badgeHtml = '';
             if (product.badge) {
                 badgeHtml = `<span class="badge ${product.badge}">${product.badgeText}</span>`;
             }
-
             const cardHtml = `
                 <div class="offer-card" style="animation-delay: ${index * 0.1}s;">
                     ${badgeHtml}
@@ -331,7 +266,6 @@
                     <a href="https://wa.me/22246099296?text=أريد شراء ${product.diamonds} لفري فاير بسعر ${product.price} MRO" class="order-btn" target="_blank">اطلب الآن</a>
                 </div>
             `;
-
             cardsContainer.insertAdjacentHTML('beforeend', cardHtml);
         });
     </script>
